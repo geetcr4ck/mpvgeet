@@ -12,6 +12,14 @@ https://github.com/mpv-player/mpv/releases/tag/git-release
 
 Build yang dipakai adalah build dev otomatis `git-release` dari branch master via github-actions (contoh v0.41.0-dev), BUKAN rilis stabil resmi. Berisi binary dev Windows, macOS, libmpv, plus sumber tarball/zipball. Lisensi dan file binary mengikuti paket unduhan tersebut.
 
+## Pratinjau
+
+![Tampilan ModernZ](preview/modernz-ui.webp)
+UI ModernZ pengganti OSC bawaan, lengkap dengan seekbar dan kontrol.
+
+![Pratinjau thumbnail saat seek](preview/thumbfast-seek.webp)
+Thumbnail pratinjau muncul saat menggeser posisi video.
+
 ## Cara rakit (3 langkah)
 
 1. Unduh mpv build Windows dari https://github.com/mpv-player/mpv/releases/tag/git-release, lalu ekstrak ke folder bebas, contoh `D:\Portable Apps\mpvgeet`.

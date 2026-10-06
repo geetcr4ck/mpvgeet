@@ -1,0 +1,5 @@
+1. Unduh mpv build Windows dari https://github.com/mpv-player/mpv/releases/tag/git-release
+2. Ekstrak zip ke folder bebas, contoh D:\Portable Apps\mpvgeet
+3. Copy portable_config dari repo ini ke sebelah mpv.exe hasil ekstrak
+4. Verify: buka pwsh di folder hasil rakit, jalan dir mpv.exe
+5. Verify: jalan dir portable_config, pastikan mpv.conf, scripts, script-opts, fonts ada

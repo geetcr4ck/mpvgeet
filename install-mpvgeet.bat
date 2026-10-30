@@ -131,7 +131,34 @@ if not exist "%INSTALL_DIR%\portable_config\mpv.conf" (
 del /q "%TMP_ZIP_MPV%" "%TMP_ZIP_REPO%" 2>nul
 rmdir /s /q "%DL_DIR%" 2>nul
 
-echo [OK] Sukses. mpvgeet terpasang di: "%INSTALL_DIR%"
-echo Langkah berikut: 1. Jalankan mpv.exe di folder install.
-echo Langkah berikut: 2. Untuk default player, klik kanan mpv-register.bat lalu Run as administrator.
+echo.
+echo ============================================================
+echo  [OK] SUKSES - mpvgeet berhasil diunduh dan terpasang
+echo ============================================================
+echo  Lokasi install: "%INSTALL_DIR%"
+echo  Isi terverifikasi: mpv.exe + portable_config\mpv.conf
+echo.
+echo  Langkah berikutnya:
+echo   1. Buka folder mpvgeet di atas, lalu jalankan mpv.exe (double klik).
+echo   2. Drag file video ke jendela mpv, atau klik kanan video
+echo      lalu Open with lalu pilih mpv.exe.
+echo   3. Ingin mpv jadi pemutar default? Klik kanan
+echo      mpv-register.bat lalu Run as administrator, kemudian buka
+echo      Settings ^> Apps ^> Default apps dan pilih mpv untuk
+echo      ekstensi mp4, mkv, avi.
+echo   4. Butuh reset riwayat/posisi? Hapus isi folder
+echo      portable_config\watch_later.
+echo   5. Folder mpvgeet ini portable: bisa dipindah ke flashdisk
+echo      atau folder lain, semua setting ikut terbawa.
+echo.
+echo  Catatan: mpv.exe berasal dari build dev resmi mpv dan belum
+echo  ditandatangani, jadi SmartScreen/Defender bisa memunculkan
+echo  peringatan. Itu umum terjadi (false positive) pada build dev.
+echo  Jika ragu, klik kanan file lalu Properties untuk cek publisher.
+echo.
+echo  Terima kasih sudah memakai mpvgeet.
+echo ============================================================
+echo.
+echo  Tekan tombol apa saja untuk menutup jendela ini
+pause >nul
 exit /b 0

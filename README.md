@@ -71,6 +71,8 @@ File conf pendamping di `portable_config\script-opts`:
 - `SmartCopyPaste_II.conf` : setting copy paste (perlu konfirmasi binding).
 - `SmartSkip.conf` : setting pola skip (perlu konfirmasi pola yang aktif).
 
+Shaders Anime4K (high-end, 39 file `.glsl`) di `portable_config\\shaders\\`, plus `portable_config\\input.conf` dengan binding `CTRL+1..6` untuk Mode A/B/C/A+A/B+B/C+A dan `CTRL+0` untuk clear shader. Mode A (HQ) aktif by default lewat `glsl-shaders` di `mpv.conf`.
+
 Font tambahan:
 
 - `portable_config\fonts\modernz-icons.ttf` : font ikon untuk UI ModernZ.
@@ -100,6 +102,10 @@ Sumber UI ModernZ (lisensi LGPL-2.1) yaitu `modernz.lua`, `modernz.conf`, dan fo
 https://github.com/cniw/mpv-discordRPC
 
 Sumber Discord Rich Presence (lisensi MIT) yaitu `mpv-discordRPC/main.lua` plus file pendukung `catalogs.lua`, `lua-discordRPC.lua`, `python-pypresence.py`, dan file conf terkait. Catatan: `status-line.lua` di paket ini ada di root repo ini, bukan dari Eisa01.
+
+https://github.com/bloc97/Anime4K/blob/master/md/GLSL_Instructions_Windows_MPV.md
+
+Panduan pemasangan shader GLSL Anime4K untuk mpv di Windows (v4.x), termasuk cara mengaktifkan Mode A/B/C melalui input.conf dan letak folder `shaders`.
 
 ## Lisensi
 

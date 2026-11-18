@@ -2,11 +2,33 @@
 
 Paket config portable untuk mpv di Windows. Jalankan tanpa install, semua setting ikut terbawa di folder `portable_config`.
 
+## Cara pakai (paling cepat)
+
+1. Klik tombol `Code` di halaman repo ini, pilih `Download ZIP`, lalu ekstrak ke folder bebas.
+2. Double klik file `install-mpvgeet.bat`. Installer akan mengunduh mpv dan config, lalu membuat folder `mpvgeet` di sebelah file tersebut.
+3. Tunggu sampai muncul tulisan `[OK] SUKSES`. Buka folder `mpvgeet`, jalankan `mpv.exe`, lalu drag video ke jendela mpv. Selesai.
+
+Butuh Windows 10 1803 atau lebih baru. Tool yang dipakai installer (`curl.exe`, `tar.exe`, `powershell.exe`) sudah bawaan di versi tersebut.
+
+Kalau installer berhenti di langkah `[2/6]`, kemungkinan GitHub sedang mencapai batas 60 request per jam. Tunggu sebentar, lalu double klik lagi file `install-mpvgeet.bat`.
+
+Mau folder install di tempat lain? Jalankan lewat Command Prompt: `install-mpvgeet.bat "D:\Portable Apps\mpvgeet"`. Kalau tidak, biarkan default.
+
+Catatan SmartScreen / Defender: file `.bat` dan `mpv.exe` berasal dari build dev mpv yang belum ditandatangani, jadi kadang memunculkan peringatan. Ini false-positive yang umum. Kalau ragu, klik kanan file lalu Properties untuk cek publisher, dan jalankan hanya di PC sendiri.
+
+## Cara manual (kalau installer tidak bisa)
+
+1. Unduh mpv build Windows dari https://github.com/mpv-player/mpv/releases/tag/git-release, pilih asset `*-x86_64-w64-mingw32-full.zip`, lalu ekstrak ke folder bebas, contoh `D:\Portable Apps\mpvgeet`.
+2. Copy folder `portable_config` dari repo ini ke sebelah `mpv.exe` hasil ekstrak.
+3. Jalankan `mpv.exe` untuk memastikan config terbaca. Struktur akhir: `mpv.exe` dan folder `portable_config` berada di folder yang sama.
+
+Ringkasan singkat juga ada di `ASSEMBLE.txt`.
+
 ## Apa ini
 
-Repo ini berisi folder `portable_config` siap pakai: file `mpv.conf`, script Lua di `scripts/`, file conf di `script-opts/`, dan font ikon di `fonts/`.
+Repo ini berisi folder `portable_config` siap pakai: file `mpv.conf`, script Lua di `scripts/`, file conf di `script-opts/`, dan font ikon di `fonts/`. File `install-mpvgeet.bat` menyatukan mpv dan config itu jadi satu folder siap jalan.
 
-Disclaimer: binary mpv diambil dari build dev resmi di bawah ini, bukan dibuat from scratch. Repo ini hanya berisi `portable_config` dan panduan. Binary tidak disertakan, unduh terpisah:
+Disclaimer: binary mpv diambil dari build dev resmi di bawah ini, bukan dibuat from scratch. Repo ini hanya berisi `portable_config`, installer, dan panduan. Binary tidak disertakan, unduh terpisah:
 
 https://github.com/mpv-player/mpv/releases/tag/git-release
 
@@ -20,18 +42,12 @@ UI ModernZ pengganti OSC bawaan, lengkap dengan seekbar dan kontrol.
 ![Pratinjau thumbnail saat seek](preview/thumbfast-seek.webp)
 Thumbnail pratinjau muncul saat menggeser posisi video.
 
-## Cara rakit (3 langkah)
-
-1. Unduh mpv build Windows dari https://github.com/mpv-player/mpv/releases/tag/git-release, lalu ekstrak ke folder bebas, contoh `D:\Portable Apps\mpvgeet`.
-2. Copy folder `portable_config` dari repo ini ke sebelah `mpv.exe` hasil ekstrak langkah 1.
-3. Jalankan `mpv.exe` untuk memastikan config terbaca. Struktur akhir harus: `mpv.exe` dan folder `portable_config` berada di folder yang sama.
-
-## Cara pakai
+## Cara pakai sehari-hari
 
 1. Jalankan `mpv.exe` dengan double klik, tidak perlu install.
 2. Drag file video ke jendela mpv, atau klik kanan video lalu pilih Open with lalu `mpv.exe`.
 3. Semua setting tersimpan di `portable_config` di sebelah `mpv.exe`, aman dipindah ke flashdisk atau folder lain.
-4. Butuh reset? Hapus file di `portable_config\watch_later` atau kembalikan `mpv.conf` ke isi semula.
+4. Butuh reset? Hapus isi `portable_config\watch_later`. Instal baru sudah otomatis mengosongkan folder ini, jadi hapus manual hanya perlu setelah paket dipakai lama.
 
 ## Cara jadi default player
 
@@ -39,12 +55,6 @@ Thumbnail pratinjau muncul saat menggeser posisi video.
 2. Buka Settings Windows lalu masuk ke Apps lalu Default apps.
 3. Pilih mpv untuk ekstensi video seperti mp4, mkv, dan avi.
 4. Untuk melepas: klik kanan `mpv-unregister.bat` lalu pilih Run as administrator.
-
-Catatan SmartScreen / Defender:
-
-- File bat dan `mpv.exe` berasal dari build dev mpv, kadang dianggap mencurigakan oleh SmartScreen atau Defender.
-- Ini umum sebagai false-positive untuk build dev yang tidak ditandatangani.
-- Jika ragu, klik kanan file lalu Properties untuk cek publisher, dan jalankan hanya di PC sendiri.
 
 ## Plugin pre-installed
 
@@ -71,21 +81,22 @@ File conf pendamping di `portable_config\script-opts`:
 - `SmartCopyPaste_II.conf` : setting copy paste (perlu konfirmasi binding).
 - `SmartSkip.conf` : setting pola skip (perlu konfirmasi pola yang aktif).
 
-Shaders Anime4K (high-end, 39 file `.glsl`) di `portable_config\\shaders\\`, plus `portable_config\\input.conf` dengan binding `CTRL+1..6` untuk Mode A/B/C/A+A/B+B/C+A dan `CTRL+0` untuk clear shader. Mode A (HQ) aktif by default lewat `glsl-shaders` di `mpv.conf`.
+Shaders Anime4K (high-end, 39 file `.glsl`) di `portable_config\shaders\`, plus `portable_config\input.conf` dengan binding `CTRL+1..6` untuk Mode A/B/C/A+A/B+B/C+A dan `CTRL+0` untuk clear shader. Mode A (HQ) aktif by default.
 
 Font tambahan:
 
 - `portable_config\fonts\modernz-icons.ttf` : font ikon untuk UI ModernZ.
 
-Konfig aktif di `portable_config\mpv.conf` (6 opsi inti):
+Konfig aktif di `portable_config\mpv.conf`:
 
 - `osc=no` : matikan OSC bawaan karena memakai ModernZ.
 - `osd-bar=no` : matikan OSD bar bawaan.
 - `title-bar=no` : sembunyikan title bar bawaan, catatan opsi ini hanya efek di sebagian build atau OS.
 - `keep-open=yes` : jendela tetap terbuka setelah video selesai.
 - `save-position-on-quit=yes` : simpan posisi terakhir saat quit, tersimpan di `watch_later`.
-- Baris komentar header `# mpv portable config - Minimal + ModernZ`.
-- Plus 2 baris branding mpvgeet: `title=mpvgeet - ${filename}` agar judul jendela memakai nama file, dan komentar `# branding: mpvgeet siap pakai`.
+- `title=mpvgeet - ${filename}` : judul jendela memakai nama file.
+- `glsl-shaders="..."` : mengaktifkan Anime4K Mode A (HQ) sebagai shader default.
+- `# Anime4K (high-end): Mode A (HQ) aktif by default` : komentar penanda mode yang aktif.
 
 ## Sumber plugin
 
